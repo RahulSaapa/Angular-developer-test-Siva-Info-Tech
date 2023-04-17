@@ -1,0 +1,25 @@
+.dis_blk {
+    display: block;
+}
+
+.overflow{
+   overflow: hidden; 
+   padding-right: 0px;
+}
+
+.flt-rght{
+    float: right;
+}
+
+.clr-black{
+    color: black;
+}
+
+
+.mg-rt-10 {
+    margin-right: 10px
+}
+
+.mg-bt-10 {
+    margin-bottom: 10px
+}

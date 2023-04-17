@@ -1,0 +1,97 @@
+<div class="modal-open overflow" [class.overflow]="isShow">
+    <div class="modal-backdrop show" *ngIf="isShow"></div>
+    <div class="row">
+        <div class="col-5"></div>
+        <div class="col-2">
+            <h1> Users</h1>
+        </div>
+        <div class="col-5">
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <!-- top pagination  -->
+            <pagination-controls class="flt-rght" (pageChange)="currentPage = $event"></pagination-controls>
+            <!-- user list start -->
+            <table class="table table">
+                <thead>
+                    <tr>
+                        <th>Action</th>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>User Name</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of userdata| paginate: { itemsPerPage: 5, currentPage: currentPage }">
+                        <button (click)="OnViewAddress(item.address)"
+                            class="btn btn-primary clr-black mg-rt-10 mg-bt-10">ViewAddress</button>
+                        <button [routerLink]="['/User' , item.id]" class="btn btn-info">Edit</button>
+                        <td>{{item.id}}</td>
+                        <td>{{item.name}}</td>
+                        <td>{{item.username}}</td>
+                        <td>{{item.email}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- user list end -->
+            <!-- buttom pagination  -->
+            <pagination-controls class="flt-rght" (pageChange)="currentPage = $event"></pagination-controls>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+<!-- The User Address Modal -->
+<div class="modal show" [class.show]="isShow" [class.dis_blk]="isShow" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">User Address</h4>
+                <!-- <button type="button" class="btn-close" data-bs-dismiss="modal"></button> -->
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <!-- user address start -->
+                <table class="table table">
+                    <thead>
+                        <tr>
+                            <th>City</th>
+                            <th>Geo</th>
+                            <th>Street</th>
+                            <th>Suite</th>
+                            <th>ZipCode</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{userAddress.city}}</td>
+                            <td><b>LAT:</b>{{userAddress.geo?.lat}}-<b>LNG:</b>{{userAddress.geo?.lng}}</td>
+                            <td>{{userAddress.street}}</td>
+                            <td>{{userAddress.suite}}</td>
+                            <td>{{userAddress.zipcode}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <!-- user address end -->
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="OnClose()">Close</button>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<ngx-ui-loader></ngx-ui-loader>

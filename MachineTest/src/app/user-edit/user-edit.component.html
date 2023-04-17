@@ -1,0 +1,32 @@
+<div class="row mg-bt-10 mg-tp-25">
+    <div class="col-2"></div>
+    <div class="col-4">ID</div>
+    <div class="col-4"> <input type="number" name="txtid" [(ngModel)]="user.id" disabled></div>
+    <div class="col-2"></div>
+</div>
+<div class="row mg-bt-10">
+    <div class="col-2"></div>
+    <div class="col-4">Name</div>
+    <div class="col-4"><input type="text" name="txtname" [(ngModel)]="user.name"></div>
+    <div class="col-2"></div>
+</div>
+<div class="row mg-bt-10">
+    <div class="col-2"></div>
+    <div class="col-4">User Name</div>
+    <div class="col-4"><input type="text" name="txtusename" [(ngModel)]="user.username"></div>
+    <div class="col-2"></div>
+</div>
+
+<div class="row mg-bt-10">
+    <div class="col-2"></div>
+    <div class="col-4">Email</div>
+    <div class="col-4"><input type="text" name="txtemail" [(ngModel)]="user.email"></div>
+    <div class="col-2"></div>
+</div>
+
+<div class="row mg-bt-10">
+    <div class="col-2"></div>
+    <div class="col-4"></div>
+    <div class="col-4"><button class="btn btn-primary mg-rt-10" [routerLink]="['/user']" >Back List</button><button class="btn btn-primary">Update</button></div>
+    <div class="col-2"></div>
+</div>
